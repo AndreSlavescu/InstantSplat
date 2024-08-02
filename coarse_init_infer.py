@@ -31,7 +31,7 @@ def get_args_parser():
 
     parser.add_argument("--llffhold", type=int, default=2)
     parser.add_argument("--n_views", type=int, default=12)
-    parser.add_argument("--img_base_path", type=str, default="/home/workspace/datasets/instantsplat/Tanks/Barn/24_views")
+    parser.add_argument("--img_base_path", type=str, default="/data/TT/Family/24_views/images")
 
     return parser
 
@@ -49,6 +49,7 @@ if __name__ == '__main__':
     n_views = args.n_views
     img_base_path = args.img_base_path
     img_folder_path = os.path.join(img_base_path, "images")
+    print("IMAGE_FOLDER_PATH: ", img_folder_path)
     os.makedirs(img_folder_path, exist_ok=True)
     model = AsymmetricCroCo3DStereo.from_pretrained(model_path).to(device)
     ##########################################################################################################################################################################################
